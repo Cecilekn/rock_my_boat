@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>All our party boats</h1>
+
+  <% @boats.each do |boat| %>
+    <p><%= link_to boat.name, boat_path(boat) %></p>
+  <% end %>
+</div>
