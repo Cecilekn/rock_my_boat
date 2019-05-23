@@ -1,6 +1,7 @@
 <div class="container">
   <h1><%= @boat.name %></h1>
 
+  <%= cl_image_tag @boat.photo, height: 300, width: 400, crop: :fill %>
   <p>Capacity: <%= @boat.capacity %></p>
   <p>Price per day: <%= @boat.price_per_day %>€</p>
   <p>Owner: <%= @boat.user.first_name %></p>
