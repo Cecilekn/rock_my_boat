@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :show, :edit, :update] do
+  get '/my_bookings', to: 'bookings#my_bookings', as: 'my_bookings'
+  get '/bookings_owner', to: 'bookings#bookings_owner', as: 'bookings_owner'
+  resources :bookings, only: [:show, :edit, :update] do
     resources :reviews, only: [:new, :create]
   end
 end
