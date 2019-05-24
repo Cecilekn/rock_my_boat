@@ -12,30 +12,37 @@ Boat.destroy_all
 
 puts "Detroyed"
 
-leonardo = User.create!(
+leonardo = User.new(
   first_name: "Leonardo",
   last_name: "Di Caprio",
   email: "leonardo@bg.com",
-  password: "12345678"
+  password: "12345678",
   )
+leonardo.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621579/Rock%20My%20Boat/o-LEONARDO-DICAPRIO-570_bv0ydb.jpg"
+leonardo.save
 
 puts "Leo created"
 
-bollore = User.create!(
+bollore = User.new(
   first_name: "Vincent",
   last_name: "Bollore",
   email: "vincent@bg.com",
   password: "12345678"
   )
+bollore.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621432/Rock%20My%20Boat/7793151516_vincent-bollore-le-francais-le-plus-puissant-d-afrique_dswqdg.jpg"
+bollore.save
+
 
 puts "Bollore created"
 
-jagger = User.create!(
+jagger = User.new(
   first_name: "Mick",
   last_name: "Jagger",
   email: "mick@bg.com",
   password: "12345678"
   )
+jagger.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558710883/Rock%20My%20Boat/_5xAXOi-_400x400_cjmqzm.jpg"
+jagger.save
 
 puts "Jagger created"
 

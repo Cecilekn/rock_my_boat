@@ -6,6 +6,12 @@
   <p>Price per day: <%= @boat.price_per_day %>€</p>
   <p>Owner: <%= @boat.user.first_name %></p>
 
+  <% if @boat.reviews != nil %>
+    <% @boat.reviews.each do |review| %>
+      <p>Review: <%= review.content %></p>
+    <% end %>
+  <% end %>
+
   <%= link_to "Book this boat", new_boat_booking_path(@boat) %>
 
   <%= link_to "Back to List", boats_path %>

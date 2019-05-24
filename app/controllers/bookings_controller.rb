@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
     @bookings
   end
 
+  # TO-DO
+
   def show
     @booking = Booking.find(params[:id])
   end
@@ -41,6 +43,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    @booking.validated = true
+    if @booking.save
+      redirect_to bookings_owner_path
+    end
   end
 
   private

@@ -1,7 +1,13 @@
 <div class="container">
   <h1>My bookings as owner</h1>
   <% @bookings.each do |booking| %>
-    <p><%= booking.start_date %></p>
+    <p>Request from: <%= booking.user.first_name %></p>
+    <p>Start date: <%= booking.start_date %></p>
+    <p>Status: <%= booking.validated %></p>
+
+    <% if booking.validated == false %>
+      <%= link_to "Validate", booking_path(booking), method: :patch %>
+    <% end %>
   <% end %>
 </div>
 
