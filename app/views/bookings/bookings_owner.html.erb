@@ -1,6 +1,10 @@
 <div class="container">
   <h1>My bookings as owner</h1>
-  <% @boats.each do |boat| %>
-    <p><%= boat.bookings.start_date %></p>
+  <% @bookings.each do |booking| %>
+    <p><%= booking.start_date %></p>
   <% end %>
 </div>
+
+<%# Mettre les bookings non validees et a venir en haut de la page, les autres en-dessous.%>
+<%# Pour ces bookings seulement, mettre un bouton "valider" qui va appeler l'action edit/update du BookingsController et venir mettre a jour le statut.  %>
+<%# Voir si on veut trier aussi les bookings par bateau %>

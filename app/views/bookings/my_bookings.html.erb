@@ -6,5 +6,18 @@
     <p><%= booking.end_date %></p>
     <p><%= booking.total_price %></p>
     <p><%= booking.validated %></p>
+
+    <% if booking.review != nil %>
+      <p><%= booking.review.content %></p>
+      <p><%= booking.review.note %></p>
+    <% end %>
+
+    <%= link_to "Leave a comment", new_booking_review_path(booking) %>
+    <%# N'afficher ce bouton que pour les bookings passes %>
+    <%# Ne l'afficher que si l'utilisateur n'a pas déjà laisse de comment pour cette reservation.  %>
   <% end %>
 </div>
+
+
+<%# Trier les bookings selon passees et a venir %>
+<%# Trier aussi selon celles qui ont ete validees par le owner ou non  %>

@@ -6,6 +6,8 @@
   <p>Price per day: <%= @boat.price_per_day %>€</p>
   <p>Owner: <%= @boat.user.first_name %></p>
 
+  <%= link_to "Book this boat", new_boat_booking_path(@boat) %>
+
   <%= link_to "Back to List", boats_path %>
 </div>
 

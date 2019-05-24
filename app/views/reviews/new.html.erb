@@ -1,0 +1,9 @@
+<div class="container">
+  <h1><%= @booking.boat.name %></h1>
+
+  <%= simple_form_for([@booking, @review]) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :note %>
+    <%= f.submit "Create" %>
+  <% end %>
+</div>
