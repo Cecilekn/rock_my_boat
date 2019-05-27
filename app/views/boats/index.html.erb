@@ -1,7 +1,56 @@
 <div class="container">
-  <h1>All our party boats</h1>
+  <h1>Index</h1>
 
-  <% @boats.each do |boat| %>
-    <p><%= link_to boat.name, boat_path(boat) %></p>
-  <% end %>
+  <div class="d-flex">
+
+    <div class="col-sm-3 filtres" id="filters">
+      <h2>Filtres</h2>
+      <br>
+      <h4>Themes</h4>
+        <p>Pirate</p>
+        <p>James Bond</p>
+        <p>Gatsby</p>
+        <p>Peter Pan</p>
+        <p>Woodstock</p>
+      <br>
+      <h4>Capacity</h4>
+        <br>
+        <div class="d-flex">
+          <p>2</p>
+          <input type="range">
+          <p>50</p>
+        </div>
+        <br>
+      <h4>Price</h4>
+        <br>
+        <div class="d-flex">
+          <p>200</p>
+          <input type="range">
+          <p>2 000</p>
+        </div>
+    </div>
+
+    <div class="col-sm-9" id="results">
+      <h2>Résultats</h2>
+        <div class="card-columns">
+          <% @boats.each do |boat| %>
+            <div class="card">
+              <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
+              <!-- <div class="card-photo card-img-top" style="background-image: url('<%= cl_image_path boat.photo%>');"></div> -->
+              <%= cl_image_tag boat.photo, class: "card-img-top"%>
+              <div class="card-body">
+                <h5 class="card-title"><p><%= link_to boat.name, boat_path(boat) %></p></h5>
+                <p><%= boat.location %></p>
+                <p><%= boat.theme %></p>
+                <p><i>For <%= boat.capacity %> people</i></p>
+                <p><strong><%= boat.price_per_day %>€</strong></p>
+                <%= link_to 'Book this boat',  boat_path(boat), class: 'btn btn-success' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
 </div>
+
+
