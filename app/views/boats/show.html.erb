@@ -1,19 +1,60 @@
+<div class="gallery-photo-flex">
+  <div class="gallery-main"><%= cl_image_tag @boat.photo, crop: :fill %></div>
+  <div class="gallery-others">
+    <%= cl_image_tag @boat.photo, crop: :fill %>
+    <%= cl_image_tag @boat.photo, crop: :fill %>
+    <%= cl_image_tag @boat.photo, crop: :fill %>
+    <%= cl_image_tag @boat.photo, crop: :fill %>
+  </div>
+</div>
+
 <div class="container">
-  <h1><%= @boat.name %></h1>
 
-  <%= cl_image_tag @boat.photo, height: 300, width: 400, crop: :fill %>
-  <p>Capacity: <%= @boat.capacity %></p>
-  <p>Price per day: <%= @boat.price_per_day %>€</p>
-  <p>Owner: <%= @boat.user.first_name %></p>
+  <div class="content">
+    <div class="left_part">
+      <div class="show_title">
+        <div>
+          <h1><%= @boat.name %></h1>
+          <p>
+            <i class="fas fa-map-marker-alt"></i>
+            <%= @boat.location %>
+          </p>
+        </div>
+        <div>
+          <i class="fas fa-user-tag"></i><%= cl_image_tag @boat.user.photo, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
+        </div>
+      </div>
+      <div class="show_infos">
+        <p><i class="fas fa-users"></i> <strong>Capacity</strong>: <%= @boat.capacity %></p>
+        <p><i class="fas fa-dollar-sign"></i> <strong>Price per day</strong>: <%= @boat.price_per_day %>€</p>
+        <p><i class="fas fa-user-tag"></i> <strong>Owner</strong>: <%= @boat.user.first_name %> <%= @boat.user.last_name %></p>
+      </div>
+      <div class="show_reviews">
+        <% if @boat.reviews != nil %>
+          <% @boat.reviews.each do |review| %>
+            <p>Review: <%= review.content %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-  <% if @boat.reviews != nil %>
-    <% @boat.reviews.each do |review| %>
-      <p>Review: <%= review.content %></p>
-    <% end %>
-  <% end %>
+    <div class="right-part">
+      <h1>Book now</h1>
+      <div class="form_show_page">
+        <%= simple_form_for [@boat, @booking] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+
 
   <%= link_to "Book this boat", new_boat_booking_path(@boat) %>
-
+<br>
   <%= link_to "Back to List", boats_path %>
 </div>
+
 

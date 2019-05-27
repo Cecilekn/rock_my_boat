@@ -1,0 +1,35 @@
+.content {
+  display: flex;
+  margin: 30px;
+}
+
+.left_part {
+  width: 75%;
+  padding: 20px;
+}
+
+.right-part {
+  padding: 20px;
+}
+
+.right-part h1 {
+  text-align: center;
+}
+
+.show_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.show_infos {
+  padding: 30px;
+}
+
+.show_reviews {
+
+}
+
+.form_show_page {
+  border: 1px solid #E2E0DD;
+  padding: 20px;
+}
