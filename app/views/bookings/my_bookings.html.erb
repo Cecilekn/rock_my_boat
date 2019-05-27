@@ -1,23 +1,48 @@
 <div class="container">
-  <h1>My bookings</h1>
-  <% @bookings.each do |booking| %>
-    <p><%= booking.boat.name %></p>
-    <p><%= booking.start_date %></p>
-    <p><%= booking.end_date %></p>
-    <p><%= booking.total_price %></p>
-    <p><%= booking.validated %></p>
 
-    <% if booking.review != nil %>
-      <p><%= booking.review.content %></p>
-      <p><%= booking.review.note %></p>
-    <% end %>
+    <div class="coming-bookings">
+      <h1>Upcoming parties</h1>
+      <% @bookings.each do |booking| %>
+        <% if booking.start_date >= Date.today %>
+          <div class="booking-card">
+            <div class="booking-card-picture" style="background-image: url('<%= cl_image_path booking.boat.photo %>'); background-size: cover; background-position: center; width: 300px; height: 200px">
+              <p><%= booking.boat.name %>, <%= booking.boat.location %></p>
+            </div>
+            <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
+              <% if booking.validated == false %>
+                <div class="alert alert-warning">Pending confirmation from owner</div>
+              <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
-    <%= link_to "Leave a comment", new_booking_review_path(booking) %>
-    <%# N'afficher ce bouton que pour les bookings passes %>
-    <%# Ne l'afficher que si l'utilisateur n'a pas déjà laisse de comment pour cette reservation.  %>
-  <% end %>
+    <div class="past-bookings">
+      <h1>Your last parties</h1>
+      <% @bookings.each do |booking| %>
+        <% if booking.start_date < Date.today %>
+          <div class="booking-card">
+            <div class="booking-card-picture" style="background-image: url('<%= cl_image_path booking.boat.photo %>'); background-size: cover; background-position: center; width: 300px; height: 200px">
+              <p><%= booking.boat.name %>, <%= booking.boat.location %></p>
+            </div>
+            <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
+
+            <% if booking.review != nil %>
+              <p>Your note for this boat party: <%= booking.review.note %></p>
+            <% else %>
+              <%= link_to "Leave a comment", new_booking_review_path(booking) %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 </div>
 
+<%# N'afficher le bouton "leave a comment" que pour les bookings passees et validees %>
+<%# Ne l'afficher que si l'utilisateur n'a pas déjà laisse de comment pour cette reservation.  %>
+<%#= Donc mettre des validations sur les reviews en fonction des bookings %>
 
 <%# Trier les bookings selon passees et a venir %>
 <%# Trier aussi selon celles qui ont ete validees par le owner ou non  %>
