@@ -1,14 +1,32 @@
 <div class="container">
-  <h1>My bookings as owner</h1>
-  <% @bookings.each do |booking| %>
-    <p>Request from: <%= booking.user.first_name %></p>
-    <p>Start date: <%= booking.start_date %></p>
-    <p>Status: <%= booking.validated %></p>
-
-    <% if booking.validated == false %>
-      <%= link_to "Validate", booking_path(booking), method: :patch %>
+  <h1>Requests to validate</h1>
+  <div class="owner-cards">
+    <% @bookings.each do |booking| %>
+      <% if booking.start_date >= Date.today %>
+        <div class="owner-card">
+          <p>Request from: <%= booking.user.first_name %></p>
+          <p>Start date: <%= booking.start_date %></p>
+          <p>Status: <%= booking.validated ? "Confirmed" : "Not confirmed yet" %></p>
+          <% if booking.validated == false %>
+            <%= link_to "Validate", booking_path(booking), method: :patch %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+
+  <h1>Past transactions</h1>
+  <div class="owner-cards">
+    <% @bookings.each do |booking| %>
+      <% if booking.start_date < Date.today %>
+        <div class="owner-card">
+          <p>Request from: <%= booking.user.first_name %></p>
+          <p>Start date: <%= booking.start_date %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <%# Mettre les bookings non validees et a venir en haut de la page, les autres en-dessous.%>
