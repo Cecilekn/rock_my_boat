@@ -1,43 +1,55 @@
 <div class="container">
 
-    <div class="coming-bookings">
-      <h1>Upcoming parties</h1>
+  <div class="upcoming-bookings">
+    <h1>Upcoming parties</h1>
+    <div class="booking-cards">
       <% @bookings.each do |booking| %>
         <% if booking.start_date >= Date.today %>
-          <div class="booking-card">
-            <div class="booking-card-picture" style="background-image: url('<%= cl_image_path booking.boat.photo %>'); background-size: cover; background-position: center; width: 300px; height: 200px">
-              <p><%= booking.boat.name %>, <%= booking.boat.location %></p>
+          <div class="booking-card <%= booking.validated ? '' : 'pending' %>">
+            <% if booking.validated == false %>
+              <div class="booking-card-picture" style="background-image: linear-gradient(rgba(230,230,230,0.8), rgba(230,230,230,0.8)), url('<%= cl_image_path booking.boat.photo %>')">
+                <p><%= booking.boat.name %>, <%= booking.boat.location %></p>
+                <p class="warning-message">Not confirmed by owner yet</p>
+              </div>
+            <% else %>
+              <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
+                <p><%= booking.boat.name %>, <%= booking.boat.location %></p>
+              </div>
+            <% end %>
+            <div class="booking-card-description">
+              <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
+              <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
             </div>
-            <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
-            <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
-              <% if booking.validated == false %>
-                <div class="alert alert-warning">Pending confirmation from owner</div>
-              <% end %>
           </div>
         <% end %>
       <% end %>
     </div>
+  </div>
 
-    <div class="past-bookings">
-      <h1>Your last parties</h1>
+  <div class="past-bookings">
+    <h1>Your last parties</h1>
+    <div class="booking-cards">
       <% @bookings.each do |booking| %>
         <% if booking.start_date < Date.today %>
           <div class="booking-card">
-            <div class="booking-card-picture" style="background-image: url('<%= cl_image_path booking.boat.photo %>'); background-size: cover; background-position: center; width: 300px; height: 200px">
+            <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
               <p><%= booking.boat.name %>, <%= booking.boat.location %></p>
             </div>
-            <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
-            <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
+            <div class="booking-card-description">
+              <p>Booked from <%= booking.start_date %> to <%= booking.end_date %></p>
+              <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
 
-            <% if booking.review != nil %>
-              <p>Your note for this boat party: <%= booking.review.note %></p>
-            <% else %>
-              <%= link_to "Leave a comment", new_booking_review_path(booking) %>
-            <% end %>
+              <% if booking.review != nil %>
+                <p class="booking-note">Your note: <%= booking.review.note %> <i class="fas fa-star"></i></p>
+              <% else %>
+                <%= link_to "Leave a comment", new_booking_review_path(booking), class: "btn-comment" %>
+              <% end %>
+            </div>
           </div>
         <% end %>
       <% end %>
     </div>
+  </div>
 </div>
 
 <%# N'afficher le bouton "leave a comment" que pour les bookings passees et validees %>
