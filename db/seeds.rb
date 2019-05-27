@@ -56,7 +56,7 @@ array = [
 array.each do |item|
   boat = Boat.new(
     name: item[0],
-    capacity: rand(2..50),
+    capacity: [2, 5, 10, 15, 20, 30, 40, 50].sample,
     location: ["Saint Malo", "Nice", "Cannes", "La Ciotat", "La Grande Motte", "Palavas les Flots"].sample,
     theme: ["Pirate", "James Bond", "Gatsby", "Peter Pan", "Woodstock"].sample,
     price_per_day: rand(200..2000),
