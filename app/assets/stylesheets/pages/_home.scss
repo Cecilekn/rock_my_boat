@@ -1,8 +1,3 @@
-a:hover {
-  text-decoration: none;
-  color: white;
-}
-
 .text {
   text-align: center;
 }
@@ -30,6 +25,10 @@ a:hover {
   position: relative;
   top: 20px;
   text-decoration: none;
+    &:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .home_button:hover {
