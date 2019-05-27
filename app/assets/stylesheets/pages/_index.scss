@@ -1,3 +1,28 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "boat-show"
+@import "boat-show";
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+
+}
+
+#filters {
+  background-color: #eeeeee;
+  margin-right: 8px;
+  padding-left: 0px;
+  height: 97vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+}
+
+#results {
+  background-color: #eeeeee;
+  padding: 0;
+}
+
