@@ -8,7 +8,7 @@
 User.destroy_all
 Boat.destroy_all
 
-puts "Detroyed"
+puts "Destroyed"
 
 leonardo = User.new(
   first_name: "Leonardo",
@@ -44,25 +44,62 @@ jagger.save!
 
 puts "Jagger created"
 
+boat = Boat.new(
+  name: "Dune III",
+  capacity: 15,
+  location: "Palavas les Flots",
+  theme: "Gatsby",
+  price_per_day: 1000
+)
+puts "boat sans photo"
+boat.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"
+boat.user = leonardo
+boat.save!
 
-array = [
-  ["Dune 3", "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"],
-  ["Lili", "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"],
-  ["Will Be Fine", "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"],
-  ["Marcaro", "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558620703/Rock%20My%20Boat/touringitaly-rent-a-yatch_moshzk.jpg"],
-  ["Wolfy", "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"]
-]
-
-array.each do |item|
-  boat = Boat.new(
-    name: item[0],
-    capacity: [2, 5, 10, 15, 20, 30, 40, 50].sample,
-    location: ["Saint Malo", "Nice", "Cannes", "La Ciotat", "La Grande Motte", "Palavas les Flots"].sample,
-    theme: ["Pirate", "James Bond", "Gatsby", "Peter Pan", "Woodstock"].sample,
-    price_per_day: rand(200..2000),
-    user_id: rand(User.first.id..User.last.id)
+boat = Boat.new(
+    name: "Lili",
+    capacity: 10,
+    location: "La Ciotat",
+    theme: "Gatsby",
+    price_per_day: 1200
   )
   puts "boat sans photo"
-  boat.remote_photo_url = item[1]
+  boat.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"
+  boat.user = bollore
   boat.save!
-end
+
+boat = Boat.new(
+    name: "Will be fine",
+    capacity: 50,
+    location: "Cassis",
+    theme: "Pirate",
+    price_per_day: 800
+  )
+  puts "boat sans photo"
+  boat.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"
+  boat.user = jagger
+  boat.save!
+
+boat = Boat.new(
+    name: "Marcaro",
+    capacity: 30,
+    location: "Saint-Tropez",
+    theme: "James Bond",
+    price_per_day: 1200
+  )
+  puts "boat sans photo"
+  boat.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558620703/Rock%20My%20Boat/touringitaly-rent-a-yatch_moshzk.jpg"
+  boat.user = bollore
+  boat.save!
+
+boat = Boat.new(
+    name: "Money Penny",
+    capacity: 2,
+    location: "Cannes",
+    theme: "James Bond",
+    price_per_day: 600
+  )
+  puts "boat sans photo"
+  boat.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"
+  boat.user = bollore
+  boat.save!
