@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
-
 User.destroy_all
 Boat.destroy_all
 
@@ -19,7 +17,7 @@ leonardo = User.new(
   password: "12345678",
   )
 leonardo.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621579/Rock%20My%20Boat/o-LEONARDO-DICAPRIO-570_bv0ydb.jpg"
-leonardo.save
+leonardo.save!
 
 puts "Leo created"
 
@@ -30,7 +28,7 @@ bollore = User.new(
   password: "12345678"
   )
 bollore.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621432/Rock%20My%20Boat/7793151516_vincent-bollore-le-francais-le-plus-puissant-d-afrique_dswqdg.jpg"
-bollore.save
+bollore.save!
 
 
 puts "Bollore created"
@@ -42,7 +40,7 @@ jagger = User.new(
   password: "12345678"
   )
 jagger.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558710883/Rock%20My%20Boat/_5xAXOi-_400x400_cjmqzm.jpg"
-jagger.save
+jagger.save!
 
 puts "Jagger created"
 
@@ -62,9 +60,9 @@ array.each do |item|
     location: ["Saint Malo", "Nice", "Cannes", "La Ciotat", "La Grande Motte", "Palavas les Flots"].sample,
     theme: ["Pirate", "James Bond", "Gatsby", "Peter Pan", "Woodstock"].sample,
     price_per_day: rand(200..2000),
-    user_id: rand(1..3),
+    user_id: rand(User.first.id..User.last.id)
   )
   puts "boat sans photo"
   boat.remote_photo_url = item[1]
-  boat.save
+  boat.save!
 end

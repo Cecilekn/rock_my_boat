@@ -1,1 +1,67 @@
-// Specific CSS for your home-page
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.text {
+  text-align: center;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 200px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.home_button {
+  background-color: #051E2E;
+  color: white;
+  font-size: bold;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  top: 20px;
+  text-decoration: none;
+}
+
+.home_button:hover {
+  background-color: #113C52;
+}
+
+// .offer_title {
+//   color: #051E2E;
+//   text-align: center;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   font-size: 28px;
+//   font-weight: bold;
+//   margin-top: 30px;
+//   margin-bottom: 20px;
+// }
+
+.offer_global {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.pictos {
+  font-size: 40px;
+  text-align: center;
+}
+
+.description {
+  font-size: 20px;
+}
+
+
