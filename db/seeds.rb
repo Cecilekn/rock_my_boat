@@ -60,7 +60,7 @@ array.each do |item|
     location: ["Saint Malo", "Nice", "Cannes", "La Ciotat", "La Grande Motte", "Palavas les Flots"].sample,
     theme: ["Pirate", "James Bond", "Gatsby", "Peter Pan", "Woodstock"].sample,
     price_per_day: rand(200..2000),
-    user_id: rand(1..3),
+    user_id: rand(User.first.id..User.last.id)
   )
   puts "boat sans photo"
   boat.remote_photo_url = item[1]
