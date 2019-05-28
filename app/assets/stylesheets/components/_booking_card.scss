@@ -1,12 +1,13 @@
 .booking-cards {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }
 
 .booking-card {
   background-color: white;
-  width: 300px;
-  height: 270px;
-  margin: 0 20px;
+  height: 320px;
   border-radius: 4px;
   box-shadow: 5px 10px 15px rgba(230,230,230,0.5);
 }
@@ -15,7 +16,7 @@
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 75%;
+  height: 65%;
   border-radius: 4px 4px 0px 0px;
   padding: 5px;
 }
@@ -32,7 +33,7 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   .warning-message {
-    color: #A13732;
+    color: #B45D4F;
     font-weight: 600;
     text-align: center;
     margin-top: 50px;
@@ -48,7 +49,7 @@
 }
 
 .booking-card-description {
-  height: 25%;
+  height: 35%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -79,6 +80,23 @@
   font-size: bold;
   padding: 10px;
   border-radius: 3px;
+  position: absolute;
+  top: -50px;
+  right: 5px;
+}
+
+.container-bookings {
+  width: 1000px;
+  margin: 0 auto 50px auto;
+}
+
+.btn-validate {
+  background-color: green;
+  color: white;
+  font-size: bold;
+  padding: 10px;
+  border-radius: 3px;
+  text-decoration: none;
   position: absolute;
   top: -50px;
   right: 5px;

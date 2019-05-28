@@ -1,28 +1,42 @@
-<div class="container">
+<div class="container-bookings">
+
   <h1>Requests to validate</h1>
-  <div class="owner-cards">
+  <div class="booking-cards">
     <% @bookings.each do |booking| %>
       <% if booking.start_date >= Date.today %>
-        <div class="owner-card">
-          <p>Request from: <%= booking.user.first_name %></p>
-          <p>Start date: <%= booking.start_date %></p>
-          <p>Status: <%= booking.validated ? "Confirmed" : "Not confirmed yet" %></p>
+        <div class="booking-card">
           <% if booking.validated == false %>
-            <%= link_to "Validate", booking_path(booking), method: :patch %>
+            <div class="owner booking-card-picture <%= booking.validated ? '' : 'pending' %>" style="background-image: linear-gradient(rgba(230,230,230,0.8), rgba(230,230,230,0.8)), url('<%= cl_image_path booking.boat.photo %>')">
+                <p class="warning-message"><%= booking.user.first_name %> wants to book <%= booking.boat.name %>!</p>
+            </div>
+          <% else %>
+             <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
           <% end %>
+          <div class="booking-card-description">
+            <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
+            <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+            <% if booking.validated == false %>
+              <%= link_to "Validate", booking_path(booking), method: :patch, class: "btn-validate" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     <% end %>
   </div>
 
 
-  <h1>Past transactions</h1>
-  <div class="owner-cards">
+  <h1>Past requests</h1>
+  <div class="booking-cards">
     <% @bookings.each do |booking| %>
       <% if booking.start_date < Date.today %>
-        <div class="owner-card">
-          <p>Request from: <%= booking.user.first_name %></p>
-          <p>Start date: <%= booking.start_date %></p>
+        <div class="booking-card">
+           <div class="owner booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
+            </div>
+            <div class="booking-card-description">
+              <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
+              <p><%= booking.user.first_name %> booked <%= booking.boat.name %> and loved it!</p>
+              <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+            </div>
         </div>
       <% end %>
     <% end %>
