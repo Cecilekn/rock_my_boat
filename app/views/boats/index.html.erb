@@ -53,7 +53,7 @@
       <% if @boats == [] %>
       <p> Sorry, there is no boat in <%= "#{@city.capitalize}" %>. Choose another city.</p>
       <% end %>
-        <div class="card-columns">
+        <div class="boats-cards">
           <% @boats.each do |boat| %>
               <div class="boat-card">
                 <div class="boat-card-picture" style="background: url('<%= cl_image_path boat.photo %>')">
