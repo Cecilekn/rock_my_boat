@@ -46,7 +46,16 @@
                   <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
                   <p><i class="fas fa-money-bill"></i></i> <%= boat.price_per_day %>€</p>
                 </div>
-                <div class="boat-rating"><i class="fas fa-star"></i></div>
+                  <div class="boat-rating">
+                    <ul>
+                    <li><i class="far fa-star"></i></li>
+                    <li><i class="far fa-star"></i></li>
+                    <li><i class="far fa-star"></i></li>
+                    <li><i class="far fa-star"></i></li>
+                    <li><i class="far fa-star"></i></li>
+                    <li>(Number of reviews)</li>
+                    </ul>
+                  </div>
                 <%= link_to '',  boat_path(boat), class: 'boat-card-link' %>
               </div>
           <% end %>
