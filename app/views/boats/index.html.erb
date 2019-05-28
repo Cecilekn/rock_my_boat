@@ -9,7 +9,7 @@
 
       <h4>City</h4>
       <ul>
-        <% @cities.each do |city|  %>
+        <% @cities.uniq.each do |city|  %>
           <li>
             <%= link_to city, boats_path(city: city) %>
           </li>
