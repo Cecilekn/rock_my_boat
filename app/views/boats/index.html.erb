@@ -31,22 +31,24 @@
     </div>
 
     <div class="col-sm-9" id="results">
-      <h2>Résultats</h2>
-        <div class="card-columns">
+      <h2>Results</h2>
+      <br>
+        <div class="boats-cards">
           <% @boats.each do |boat| %>
-            <div class="card">
-              <!-- <img class="card-img-top" src="" alt="Card image cap"> -->
-              <!-- <div class="card-photo card-img-top" style="background-image: url('<%= cl_image_path boat.photo%>');"></div> -->
-              <%= cl_image_tag boat.photo, class: "card-img-top"%>
-              <div class="card-body">
-                <h5 class="card-title"><p><%= link_to boat.name, boat_path(boat) %></p></h5>
-                <p><%= boat.location %></p>
-                <p><%= boat.theme %></p>
-                <p><i>For <%= boat.capacity %> people</i></p>
-                <p><strong><%= boat.price_per_day %>€</strong></p>
-                <%= link_to 'Book this boat',  boat_path(boat), class: 'btn btn-success' %>
+              <div class="boat-card">
+                <div class="boat-card-picture" style="background: url('<%= cl_image_path boat.photo %>')">
+                </div>
+                <%#= cl_image_tag boat.photo, class: "boat-card-picture", height: 223 %>
+                <div class="card-body">
+                  <h2 class="card-title"><%= link_to boat.name, boat_path(boat) %></h2>
+                  <p><i class="fas fa-map-marker-alt"></i> <%= boat.location %></p>
+                  <p><i class="fas fa-mask"></i> <%= boat.theme %></p>
+                  <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
+                  <p><i class="fas fa-money-bill"></i></i> <%= boat.price_per_day %>€</p>
+                </div>
+                <div class="boat-rating"><i class="fas fa-star"></i></div>
+                <%= link_to '',  boat_path(boat), class: 'boat-card-link' %>
               </div>
-            </div>
           <% end %>
         </div>
     </div>
