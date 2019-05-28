@@ -6,12 +6,30 @@
     <div class="col-sm-3 filtres" id="filters">
       <h2>Filtres</h2>
       <br>
+
+      <h4>City</h4>
+      <ul>
+        <% @cities.each do |city|  %>
+          <li>
+            <%= link_to city, boats_path(city: city) %>
+          </li>
+        <% end %>
+      </ul>
+
+
       <h4>Themes</h4>
-        <p>Pirate</p>
+      <ul>
+        <% @themes.uniq.each do |theme| %>
+          <li>
+            <%= link_to theme, boats_path(theme: theme) %>
+          </li>
+        <% end %>
+      </ul>
+<!--         <p>Pirate</p>
         <p>James Bond</p>
         <p>Gatsby</p>
         <p>Peter Pan</p>
-        <p>Woodstock</p>
+        <p>Woodstock</p> -->
       <br>
       <h4>Capacity</h4>
         <br>
@@ -32,6 +50,9 @@
 
     <div class="col-sm-9" id="results">
       <h2>Résultats</h2>
+      <% if @boats == [] %>
+      <p> Sorry, there is no boat in <%= "#{@city.capitalize}" %>. Choose another city.</p>
+      <% end %>
         <div class="card-columns">
           <% @boats.each do |boat| %>
             <div class="card">

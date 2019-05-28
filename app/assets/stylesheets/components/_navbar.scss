@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: white;
 }
 
 .navbar-inner-home {
@@ -13,4 +13,10 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-transparent {
+  background-color: transparent;
+  position: fixed;
+  width: 100vw;
 }

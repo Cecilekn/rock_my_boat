@@ -1,7 +1,15 @@
 <div class="banner">
   <div class="title">
     <h1><strong>Book a boat and let's party begin !</strong></h1>
-    <a href="/boats" class="home_button">Find your boat</a>
+  </div>
+  <div class="search-form">
+    <%= form_tag boats_path, method: :get do %>
+      <%= text_field_tag :city,
+        params[:city],
+        class: "form-control",
+        placeholder: "Choose a city"
+      %>
+    <% end %>
   </div>
 </div>
 
