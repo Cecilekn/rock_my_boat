@@ -1,13 +1,17 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg);">
-  <div class="text">
+<div class="banner">
+  <div class="title">
     <h1><strong>Book a boat and let's party begin !</strong></h1>
-    <a href="/boats" class="home_button">Find your boat</a>
+  </div>
+  <div class="search-form">
+    <%= form_tag boats_path, method: :get do %>
+      <%= text_field_tag :city,
+        params[:city],
+        class: "form-control",
+        placeholder: "Choose a city"
+      %>
+    <% end %>
   </div>
 </div>
-
-<!-- <div class="offer_title">
- <h2>How it works</h2>
-</div> -->
 
 
 <div class="offer_global">
@@ -35,6 +39,15 @@
       <p>Enjoy the party !</p>
     </div>
   </div>
+
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
 </div>
 
 

@@ -1,7 +1,26 @@
 class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @boats = Boat.all
+    @city = params[:city]
+    @theme = params[:theme]
+
+    @boats = Boat.where.not(latitude: nil, longitude: nil)
+    @boats = Boat.where("location ILIKE ?", "%#{@city}%") if @city.present?
+    @boats = Boat.where("theme ILIKE ?", "#{@theme}") if @theme.present?
+
+    @cities = []
+    @themes = []
+    Boat.all.each do |boat|
+      @cities << boat.location
+      @themes << boat.theme
+    end
+
+    @markers = @boats.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def show
@@ -27,6 +46,6 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:name, :capacity, :location, :theme, :price_per_day, :photo)
+    params.require(:boat).permit(:name, :capacity, :location, :theme, :price_per_day, :photo, :photo_cache)
   end
 end

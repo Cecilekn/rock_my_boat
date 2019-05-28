@@ -1,19 +1,16 @@
-.text {
-  text-align: center;
-}
-
 .banner {
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg");
   background-size: cover;
-  background-position: center;
-  padding: 200px 0;
+  height: 70vh;
+  padding: 240px 0;
 }
 
 .banner h1 {
-  margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 40px;
   font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .home_button {
@@ -34,16 +31,6 @@
 .home_button:hover {
   background-color: #113C52;
 }
-
-// .offer_title {
-//   color: #051E2E;
-//   text-align: center;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-//   font-size: 28px;
-//   font-weight: bold;
-//   margin-top: 30px;
-//   margin-bottom: 20px;
-// }
 
 .offer_global {
   display: flex;
