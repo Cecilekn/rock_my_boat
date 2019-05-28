@@ -1,12 +1,9 @@
-<div class="container">
+<div class="p-4">
   <h1>Index</h1>
-
   <div class="d-flex">
-
-    <div class="col-sm-3 filtres" id="filters">
+    <div class="filtres" id="filters">
       <h2>Filtres</h2>
       <br>
-
       <h4>City</h4>
       <ul>
         <% @cities.uniq.each do |city|  %>
@@ -16,7 +13,6 @@
         <% end %>
       </ul>
 
-
       <h4>Themes</h4>
       <ul>
         <% @themes.uniq.each do |theme| %>
@@ -25,61 +21,56 @@
           </li>
         <% end %>
       </ul>
-<!--         <p>Pirate</p>
-        <p>James Bond</p>
-        <p>Gatsby</p>
-        <p>Peter Pan</p>
-        <p>Woodstock</p> -->
       <br>
+
       <h4>Capacity</h4>
-        <br>
-        <div class="d-flex">
-          <p>2</p>
-          <input type="range">
-          <p>50</p>
-        </div>
-        <br>
+      <br>
+      <div class="d-flex">
+        <p>2</p>
+        <input type="range">
+        <p>50</p>
+      </div>
+      <br>
+
       <h4>Price</h4>
-        <br>
-        <div class="d-flex">
-          <p>200</p>
-          <input type="range">
-          <p>2 000</p>
-        </div>
+      <br>
+      <div class="d-flex">
+        <p>200</p>
+        <input type="range">
+        <p>2 000</p>
+      </div>
     </div>
 
-    <div class="col-sm-9" id="results">
-      <h2>Résultats</h2>
+    <div class="flex-grow-1" id="results">
+      <h2>Results</h2>
+
       <% if @boats == [] %>
-      <p> Sorry, there is no boat in <%= "#{@city&.capitalize}" %>. Choose another city.</p>
+        <p> Sorry, there is no boat in <%= "#{@city&.capitalize}" %>. Choose another city.</p>
       <% end %>
-        <div class="boats-cards">
-          <% @boats.each do |boat| %>
-              <div class="boat-card">
-                <div class="boat-card-picture" style="background: url('<%= cl_image_path boat.photo %>')">
-                </div>
-                <%#= cl_image_tag boat.photo, class: "boat-card-picture", height: 223 %>
-                <div class="card-body">
-                  <h2 class="card-title"><%= link_to boat.name, boat_path(boat) %></h2>
-                  <p><i class="fas fa-map-marker-alt"></i> <%= boat.location %></p>
-                  <p><i class="fas fa-mask"></i> <%= boat.theme %></p>
-                  <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
-                  <p><i class="fas fa-money-bill"></i></i> <%= boat.price_per_day %>€</p>
-                </div>
-                  <div class="boat-rating">
-                    <ul>
-                    <li><i class="far fa-star"></i></li>
-                    <li><i class="far fa-star"></i></li>
-                    <li><i class="far fa-star"></i></li>
-                    <li><i class="far fa-star"></i></li>
-                    <li><i class="far fa-star"></i></li>
-                    <li>(Number of reviews)</li>
-                    </ul>
-                  </div>
-                <%= link_to '',  boat_path(boat), class: 'boat-card-link' %>
-              </div>
-          <% end %>
-        </div>
+
+      <div class="boats-cards">
+        <% @boats.each do |boat| %>
+          <div class="boat-card">
+            <div class="boat-rating">
+              <% boat.average_note.times do %>
+                <i class="fas fa-star" id="star"></i>
+              <% end %>
+              <% (5 - boat.average_note).times do %>
+                <i class="far fa-star" id="star"></i>
+              <% end %>
+            </div>
+            <div class="boat-card-picture" style="background: url('<%= cl_image_path boat.photo %>')"></div>
+            <div class="card-body">
+              <h2 class="card-title"><%= link_to boat.name, boat_path(boat) %></h2>
+              <p><i class="fas fa-map-marker-alt"></i> <%= boat.location %></p>
+              <p><i class="fas fa-mask"></i> <%= boat.theme %></p>
+              <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
+              <p><i class="fas fa-money-bill"></i> <%= boat.price_per_day %>€</p>
+            </div>
+            <%= link_to '', boat_path(boat), class: 'boat-card-link' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

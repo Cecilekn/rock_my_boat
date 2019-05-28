@@ -193,3 +193,4 @@ booking8.total_price = dune.price_per_day * (booking8.end_date - booking8.start_
 booking8.save!
 puts "booking8 created"
 
+

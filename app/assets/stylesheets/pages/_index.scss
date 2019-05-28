@@ -12,10 +12,11 @@
 }
 
 .boat-card {
+  position: relative;
   border-radius: 4px;
   background-color: white;
   box-shadow: 5px 10px 15px rgba(230,230,230,0.5);
-  position: relative;
+
 }
 
 .boat-card:hover {
@@ -38,15 +39,22 @@
 }
 
 .boat-rating {
-  margin-top: 0px;
-  margin-right: 0;
+  position: absolute;
+  padding: 0;
+  margin-left: 200px;
+  padding: 4px;
 }
+
 .boat-card-link {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+#star {
+  color: #ffe837;
 }
 
 #filters {
@@ -57,6 +65,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 10px;
+  width: 25%;
 }
 
 #results {
@@ -93,4 +102,9 @@ p, a {
 
 ul {
   list-style-type: none;
+  padding: 0;
+}
+
+li:hover {
+  color: #C
 }
