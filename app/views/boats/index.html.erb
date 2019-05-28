@@ -51,7 +51,7 @@
     <div class="col-sm-9" id="results">
       <h2>Résultats</h2>
       <% if @boats == [] %>
-      <p> Sorry, there is no boat in <%= "#{@city.capitalize}" %>. Choose another city.</p>
+      <p> Sorry, there is no boat in <%= "#{@city&.capitalize}" %>. Choose another city.</p>
       <% end %>
         <div class="boats-cards">
           <% @boats.each do |boat| %>
