@@ -3,7 +3,7 @@
 
   <%= simple_form_for([@booking, @review]) do |f| %>
     <%= f.input :content %>
-    <%= f.input :note %>
+    <%= f.input :note, collection: Review::NOTES%>
     <%= f.submit "Create" %>
   <% end %>
 </div>
