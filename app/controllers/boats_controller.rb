@@ -4,7 +4,7 @@ class BoatsController < ApplicationController
     @city = params[:city]
     @theme = params[:theme]
 
-    @boats = Boat.where.not(latitude: nil, longitude: nil)
+    # @boats = Boat.where.not(latitude: nil, longitude: nil)
     @boats = Boat.where("location ILIKE ?", "%#{@city}%") if @city.present?
     @boats = Boat.where("theme ILIKE ?", "#{@theme}") if @theme.present?
 
@@ -15,12 +15,12 @@ class BoatsController < ApplicationController
       @themes << boat.theme
     end
 
-    @markers = @boats.map do |boat|
-      {
-        lat: boat.latitude,
-        lng: boat.longitude
-      }
-    end
+    # @markers = @boats.map do |boat|
+    #   {
+    #     lat: boat.latitude,
+    #     lng: boat.longitude
+    #   }
+    # end
   end
 
   def show
