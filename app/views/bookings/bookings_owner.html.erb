@@ -13,7 +13,8 @@
              <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
           <% end %>
           <div class="booking-card-description">
-            <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
+            <h2><%= booking.boat.name %></h2>
+            <p><i class="fas fa-map-marker-alt"></i> <%= booking.boat.location.split(",").first %></p>
             <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
             <% if booking.validated == false %>
               <%= link_to "Validate", booking_path(booking), method: :patch, class: "btn-validate" %>
@@ -33,7 +34,8 @@
            <div class="owner booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
             </div>
             <div class="booking-card-description">
-              <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
+              <h2><%= booking.boat.name %></h2>
+              <p><i class="fas fa-map-marker-alt"></i> <%= booking.boat.location.split(",").first %></p>
               <p><%= booking.user.first_name %> booked <%= booking.boat.name %> and loved it!</p>
               <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
             </div>
