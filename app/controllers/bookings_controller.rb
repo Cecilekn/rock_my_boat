@@ -33,7 +33,6 @@ class BookingsController < ApplicationController
     @booking.boat = @boat
     @booking.user = current_user
     if @booking.save
-      redirect_to my_bookings_path
     else
       render 'bookings/new'
     end

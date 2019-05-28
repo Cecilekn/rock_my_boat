@@ -10,17 +10,18 @@ class BoatsController < ApplicationController
 
     @cities = []
     @themes = []
+
     Boat.all.each do |boat|
       @cities << boat.location
       @themes << boat.theme
     end
 
-    # @markers = @boats.map do |boat|
-    #   {
-    #     lat: boat.latitude,
-    #     lng: boat.longitude
-    #   }
-    # end
+    @markers = @boats.map do |boat|
+      {
+        lat: boat.latitude,
+        lng: boat.longitude
+      }
+    end
   end
 
   def show
