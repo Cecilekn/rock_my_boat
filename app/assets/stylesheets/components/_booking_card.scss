@@ -10,15 +10,13 @@
   border-radius: 4px;
   box-shadow: 5px 10px 15px rgba(230,230,230,0.5);
   position: relative;
-}
-
-.booking-card:hover {
-  background-color: #F5F3F5;
-  box-shadow: 15px 25px 15px rgba(230,230,230,0.1);
-}
-
-.booking-card p {
-  font-style: italic;
+  &:hover {
+    background-color: #F5F3F5;
+    box-shadow: 15px 25px 15px rgba(230,230,230,0.1);
+  }
+  p {
+    font-style: italic;
+  }
 }
 
 .booking-card-picture {
@@ -38,14 +36,14 @@
   padding: 1.25rem;
 }
 
-.booking-rating {
+.booking-rating, .booking-confirmation {
   color: #E4B9B2;
   position: absolute;
-  top: 190px;
+  top: 194px;
   right: 7px;
 }
 
-.btn-booking-rating {
+.btn-booking {
   background-color: #7E4137;
   color: white;
   font-size: bold;
@@ -56,45 +54,26 @@
   top: 172px;
   right: 7px;
   &:hover {
-    background-color: #C56656;
+    background-color: #E4B9B2;
     color: white;
   }
 }
 
 .warning-message {
-  color: #B45D4F;
-  font-weight: 600;
+color: #7E4137;
+font-weight: 600;
 }
 
-.upcoming-bookings h1{
-  margin: 20px 0;
-}
-
-.past-bookings h1{
-  margin: 20px 0;
-}
-
-
-
-
-.btn-comment:hover {
-  background-color: #3B3C42;
-  color: white;
+.pending:hover {
+  .warning-message{
+    color: #CF8174;
+  }
 }
 
 .container-bookings {
   width: 1000px;
   margin: 0 auto 50px auto;
-}
-
-.btn-validate {
-  background-color: green;
-  color: white;
-  font-size: bold;
-  padding: 10px;
-  border-radius: 3px;
-  text-decoration: none;
-  position: absolute;
-  top: -50px;
-  right: 5px;
+  h1 {
+    margin: 20px 0;
+  }
 }
