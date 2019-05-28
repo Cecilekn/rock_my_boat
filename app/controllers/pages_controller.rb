@@ -7,7 +7,8 @@ class PagesController < ApplicationController
     @markers = @boats.map do |boat|
       {
         lat: boat.latitude,
-        lng: boat.longitude
+        lng: boat.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { boat: boat })
       }
     end
   end
