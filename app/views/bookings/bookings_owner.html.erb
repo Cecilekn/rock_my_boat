@@ -1,22 +1,28 @@
 <div class="container-bookings">
 
-  <h1>Requests to validate</h1>
+  <h1>Upcoming requests</h1>
   <div class="booking-cards">
     <% @bookings.each do |booking| %>
       <% if booking.start_date >= Date.today %>
-        <div class="booking-card">
+        <div class="booking-card <%= booking.validated ? '' : 'pending' %>">
           <% if booking.validated == false %>
-            <div class="owner booking-card-picture <%= booking.validated ? '' : 'pending' %>" style="background-image: linear-gradient(rgba(230,230,230,0.8), rgba(230,230,230,0.8)), url('<%= cl_image_path booking.boat.photo %>')">
-                <p class="warning-message"><%= booking.user.first_name %> wants to book <%= booking.boat.name %>!</p>
+            <div class="booking-card-picture" style="background-image: linear-gradient(rgba(230,230,230,0.8), rgba(230,230,230,0.8)), url('<%= cl_image_path booking.boat.photo %>')">
+                <h3 class="warning-message"><%= booking.user.first_name %> wants to book <%= booking.boat.name %>!</h3>
             </div>
           <% else %>
-             <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
+             <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')"></div>
           <% end %>
           <div class="booking-card-description">
-            <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
-            <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+            <h2><%= booking.boat.name %></h2>
+            <p><i class="fas fa-map-marker-alt"></i> <%= booking.boat.location.split(",").first %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+            <p><i class="fas fa-money-bill"></i> <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€ all inclusive</p>
             <% if booking.validated == false %>
-              <%= link_to "Validate", booking_path(booking), method: :patch, class: "btn-validate" %>
+              <p><i class="fas fa-user"></i> <%= booking.user.first_name %>?</p>
+              <%= link_to "Validate", booking_path(booking), method: :patch, class: "btn-booking" %>
+            <% else %>
+              <p><i class="fas fa-user"></i> <%= "#{booking.user.first_name} has booked #{booking.boat.name}"%></p>
+              <p class="booking-confirmation"><i class="fas fa-check"></i> Validated</p>
             <% end %>
           </div>
         </div>
@@ -30,12 +36,13 @@
     <% @bookings.each do |booking| %>
       <% if booking.start_date < Date.today %>
         <div class="booking-card">
-           <div class="owner booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
-            </div>
+           <div class="owner booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')"></div>
             <div class="booking-card-description">
-              <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
-              <p><%= booking.user.first_name %> booked <%= booking.boat.name %> and loved it!</p>
-              <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+              <h2><%= booking.boat.name %></h2>
+              <p><i class="fas fa-map-marker-alt"></i> <%= booking.boat.location.split(",").first %></p>
+              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+              <p><i class="fas fa-money-bill"></i> <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€ all inclusive</p>
+              <p><i class="fas fa-user"></i> <%= booking.user.first_name %> had a nice party on <%= booking.boat.name %>!</p>
             </div>
         </div>
       <% end %>

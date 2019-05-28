@@ -8,16 +8,17 @@
           <div class="booking-card <%= booking.validated ? '' : 'pending' %>">
             <% if booking.validated == false %>
               <div class="booking-card-picture" style="background-image: linear-gradient(rgba(230,230,230,0.8), rgba(230,230,230,0.8)), url('<%= cl_image_path booking.boat.photo %>')">
-                <p class="warning-message">Not confirmed by <%= booking.boat.user.first_name %> yet</p>
+                <h3 class="warning-message">Not confirmed by <%= booking.boat.user.first_name %> yet!</h3>
               </div>
             <% else %>
               <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
               </div>
             <% end %>
             <div class="booking-card-description">
-              <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
-              <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
-              <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
+              <h2><%= booking.boat.name %></h2>
+              <p><i class="fas fa-map-marker-alt"></i> <%= booking.boat.location.split(",").first %></p>
+              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+              <p><i class="fas fa-money-bill"></i> <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€ all inclusive</p>
             </div>
           </div>
         <% end %>
@@ -34,12 +35,13 @@
             <div class="booking-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('<%= cl_image_path booking.boat.photo %>')">
             </div>
             <div class="booking-card-description">
-              <p><em><%= booking.boat.name %>, <%= booking.boat.location.split(",").first %></em></p>
-              <p><%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
-              <p>Total price: <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€</p>
+              <h2><%= booking.boat.name %></h2>
+              <p><i class="fas fa-map-marker-alt"></i> <%= booking.boat.location.split(",").first %></p>
+              <p><i class="far fa-calendar-alt"></i> <%= booking.start_date.to_formatted_s(:long) %> - <%= booking.end_date.to_formatted_s(:long) %></p>
+              <p><i class="fas fa-money-bill"></i> <%= (booking.end_date - booking.start_date).to_i * booking.boat.price_per_day %>€ all inclusive</p>
 
               <% if booking.review != nil %>
-                <p class="booking-note">Your note:
+                <p class="booking-rating">Your rating:
                   <% booking.review.note.times do%>
                     <i class="fas fa-star"></i>
                   <% end %>
@@ -48,7 +50,7 @@
                     <% end %>
                 </p>
               <% else %>
-                <%= link_to "Leave a comment", new_booking_review_path(booking), class: "btn-comment" %>
+                <%= link_to "Rate this boat", new_booking_review_path(booking), class: "btn-booking" %>
               <% end %>
             </div>
           </div>
