@@ -1,10 +1,10 @@
 <div class="p-4">
-  <h1>Index</h1>
   <div class="d-flex">
     <div class="filtres" id="filters">
       <h2>Filtres</h2>
       <br>
       <h4>City</h4>
+      <br>
       <ul>
         <% @cities.uniq.each do |city|  %>
           <li>
@@ -14,6 +14,7 @@
       </ul>
 
       <h4>Themes</h4>
+      <br>
       <ul>
         <% @themes.uniq.each do |theme| %>
           <li>
@@ -25,7 +26,7 @@
 
       <h4>Capacity</h4>
       <br>
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <p>2</p>
         <input type="range">
         <p>50</p>
@@ -34,7 +35,7 @@
 
       <h4>Price</h4>
       <br>
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <p>200</p>
         <input type="range">
         <p>2 000</p>
@@ -42,8 +43,8 @@
     </div>
 
     <div class="flex-grow-1" id="results">
-      <h2>Results</h2>
-
+      <h2>Our best boats rentals</h2>
+      <br>
       <% if @boats == [] %>
         <p> Sorry, there is no boat in <%= "#{@city&.capitalize}" %>. Choose another city.</p>
       <% end %>
@@ -65,7 +66,7 @@
               <p><i class="fas fa-map-marker-alt"></i> <%= boat.location %></p>
               <p><i class="fas fa-mask"></i> <%= boat.theme %></p>
               <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
-              <p><i class="fas fa-money-bill"></i> <%= boat.price_per_day %>€</p>
+              <p><i class="fas fa-money-bill"></i> <%= boat.price_per_day %>€ per day</p>
             </div>
             <%= link_to '', boat_path(boat), class: 'boat-card-link' %>
           </div>
