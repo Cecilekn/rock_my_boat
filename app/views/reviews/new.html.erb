@@ -1,9 +1,16 @@
-<div class="container">
-  <h1><%= @booking.boat.name %></h1>
+<div class="form-container">
+    <div class="background-picture">
+      <div class="main-row main-row-rating">
+        <div class="col-12 col-md-8">
+          <h1><%= @booking.boat.name %></h1>
 
-  <%= simple_form_for([@booking, @review]) do |f| %>
-    <%= f.input :content %>
-    <%= f.input :note, collection: Review::NOTES%>
-    <%= f.submit "Create" %>
-  <% end %>
-</div>
+          <%= simple_form_for([@booking, @review]) do |f| %>
+            <%= f.input :content %>
+            <%= f.input :note, collection: Review::NOTES%>
+            <%= f.submit "Create", class: "btn btn-primary btn-100"%>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
