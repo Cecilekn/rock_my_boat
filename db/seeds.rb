@@ -8,6 +8,7 @@
 User.destroy_all
 Boat.destroy_all
 Booking.destroy_all
+Review.destroy_all
 
 puts "Destroyed"
 
@@ -236,3 +237,90 @@ booking12.boat = dune
 booking12.total_price = dune.price_per_day * (booking12.end_date - booking12.start_date).to_i
 booking12.save!
 puts "booking12 created"
+
+booking13 = Booking.new(
+  start_date: Date.today - 78,
+  end_date: Date.today - 76,
+  validated: true
+  )
+booking13.user = bollore
+booking13.boat = dune
+booking13.total_price = dune.price_per_day * (booking13.end_date - booking13.start_date).to_i
+booking13.save!
+puts "booking13 created"
+
+booking14 = Booking.new(
+  start_date: Date.today - 99,
+  end_date: Date.today - 98,
+  validated: true
+  )
+booking14.user = mick
+booking14.boat = dune
+booking14.total_price = dune.price_per_day * (booking14.end_date - booking14.start_date).to_i
+booking14.save!
+puts "booking7 created"
+
+review1 = Review.new(
+  content: "Not able to tell you how happy I am with this boat. We’ve used it for parties for the last five years." ,
+  note: 5
+  )
+review1.user = mick
+review1.booking = booking7
+review1.save!
+puts "review1 created"
+
+review2 = Review.new(
+  content: "We have no regrets! You won’t regret it." ,
+  note: 4
+  )
+review2.user = bollore
+review2.booking = booking8
+review2.save!
+puts "review2 created"
+
+review3 = Review.new(
+  content: "I will let my mum know about this, she could really make use of this boat! You guys rock!" ,
+  note: 5
+  )
+review3.user = bollore
+review3.booking = booking13
+review3.save!
+puts "review3 created"
+
+review4 = Review.new(
+  content: "I couldn’t have asked for more than this. I would gladly pay more for this boat. Thanks Leo!" ,
+  note: 5
+  )
+review4.user = mick
+review4.booking = booking14
+review4.save!
+puts "review4 created"
+
+review5 = Review.new(
+  content: "Wow what a great boat, I love it! It’s incredible" ,
+  note: 3
+  )
+review5.user = leonardo
+review5.booking = booking1
+review5.save!
+puts "review5 created"
+
+review6 = Review.new(
+  content: "Absolutely wonderful! I use this boat often" ,
+  note: 4
+  )
+review6.user = leonardo
+review6.booking = booking2
+review6.save!
+puts "review6 created"
+
+review7 = Review.new(
+  content: "If you aren’t sure, always go for this boat. This boat is exactly what you need." ,
+  note: 5
+  )
+review7.user = leonardo
+review7.booking = booking3
+review7.save!
+puts "review7 created"
+
+
