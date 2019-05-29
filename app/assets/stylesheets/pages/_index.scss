@@ -1,81 +1,15 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "boat-index";
 @import "boat-show";
 @import "owner-bookings";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i,800,800i|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,700,700i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,700,700i&display=swap');
 
-.boats-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 8px;
-}
-
-.boat-card {
-  position: relative;
-  border-radius: 4px;
-  background-color: white;
-  box-shadow: 5px 10px 15px rgba(230,230,230,0.5);
-
-}
-
-.boat-card:hover {
-  border-radius: 4px;
-  background-color: #F5F3F5;
-  box-shadow: 15px 25px 15px rgba(230,230,230,0.1);
-}
-
-.boat-card p {
-  font-style: italic;
-}
-
-.boat-card-picture {
-  background-position: top center !important;
-  background-size: cover !important;
-  width: 100%;
-  height: 223px;
-  border-radius: 4px 4px 0 0;
-  // object-fit: cover;
-}
-
-.boat-rating {
-  position: absolute;
-  padding: 0;
-  margin-left: 200px;
-  padding: 4px;
-}
-
-.boat-card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-#star {
-  color: #ffe837;
-}
-
-#filters {
-  background-color: #eeeeee;
-  margin-right: 8px;
-  padding-left: 0px;
-  height: 97vh;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 10px;
-  width: 25%;
-}
-
-#results {
-  background-color: #eeeeee;
-  padding: 0;
-}
-
 h1, h2, h3, h4, p {
   margin: 0;
+  color: #2D3142;
 }
 
 h1 {
@@ -117,3 +51,4 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+
