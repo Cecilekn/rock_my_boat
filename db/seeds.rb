@@ -325,22 +325,5 @@ review5.booking = booking1
 review5.save!
 puts "review5 created"
 
-review6 = Review.new(
-  content: "Absolutely wonderful! I use this boat often" ,
-  note: 4
-  )
-review6.user = leonardo
-review6.booking = booking2
-review6.save!
-puts "review6 created"
-
-review7 = Review.new(
-  content: "If you aren’t sure, always go for this boat. This boat is exactly what you need." ,
-  note: 5
-  )
-review7.user = leonardo
-review7.booking = booking3
-review7.save!
-puts "review7 created"
 
 

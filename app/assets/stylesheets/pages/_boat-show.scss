@@ -4,12 +4,14 @@
 }
 
 .left_part {
-  width: 75%;
+  width: 47%;
   padding: 20px;
+  margin-right: 150px;
 }
 
 .right-part {
   padding: 20px;
+  padding-left: 20px;
 }
 
 .right-part h1 {
@@ -24,13 +26,14 @@
 
 .rating-container {
   margin-top: 25px;
-  margin-right: 280px;
+  margin-right: 320px;
 }
+
 
 .avatar-picture {
   position: absolute;
-  margin-left: 650px;
-  margin-top: 80px;
+  margin-left: 520px;
+  margin-top: 35px;
 }
 
 .show_infos {
@@ -55,4 +58,9 @@
 .form_show_page {
   border: 1px solid #E2E0DD;
   padding: 20px;
+}
+
+.container-boat-show {
+  width: 95%;
+  margin: 0 auto;
 }
