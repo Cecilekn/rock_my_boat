@@ -1,5 +1,6 @@
 .gallery-photo-flex {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .gallery-main {
@@ -11,9 +12,69 @@
 }
 
 .gallery-others {
-  width: 51%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.gallery-others img {
-  width: 49%
+// .gallery-others img {
+//   width: 49%
+// }
+
+
+// test
+
+
+.card-mosaic {
+    -webkit-box-align: center !important;
+    -ms-flex-align: center !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    flex_direction: row !important;
+    overflow: hidden !important;
+    height: 550px;
+}
+
+
+.card-mosaic-multi {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.card-mosaic-size {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-width: 1px !important;
+}
+
+.first-card {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    width: 70%;
+}
+
+.boat-card-first {
+    display: inline-block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.mosaic-boat-card {
+    position: relative;
+    height: 236px !important;
 }
