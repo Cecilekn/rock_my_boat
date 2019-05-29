@@ -1,7 +1,10 @@
-<div class="container">
+<div class="form-container">
   <div class="background-picture">
 
-    <div class="row">
+
+
+
+    <div class="row main-row">
         <div class="col-12 col-md-8">
           <h1>Tell us more about your boat !</h1>
           <%= simple_form_for(@boat) do |f| %>
@@ -10,17 +13,21 @@
           <%= f.input :location %>
           <%= f.input :theme, as: :radio_buttons, collection: Boat::THEMES, wrapper: :vertical_collection_inline %>
           <%= f.input :price_per_day, label: "Price per day (euros)", input_html: {min: '0', max: '2000'} %>
-          <%= f.input :photo, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
-          <%= f.input :photo_2, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
-          <%= f.input :photo_3, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
-          <%= f.input :photo_4, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
-          <%= f.input :photo_5, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
+
+          <div class="for-photo d-flex justify-content-between">
+            <%= f.input :photo, label: "📷 photo n°1", label_html: { class: 'btn btn-warning btn-photo' }, input_html: { class: 'd-none'}  %>
+            <%= f.input :photo_2, label: "📷 photo n°2 ", label_html: { class: 'btn btn-warning btn-photo' }, input_html: { class: 'd-none'}  %>
+            <%= f.input :photo_3, label: "📷 photo n°3 ", label_html: { class: 'btn btn-warning btn-photo' }, input_html: { class: 'd-none'}  %>
+            <%= f.input :photo_4, label: "📷 photo n°4 ", label_html: { class: 'btn btn-warning btn-photo' }, input_html: { class: 'd-none'}  %>
+            <%= f.input :photo_5, label: "📷 photo n°5 ", label_html: { class: 'btn btn-warning btn-photo' }, input_html: { class: 'd-none'}  %>
+          </div>
+
           <%#= f.input :photo_cache, as: :hidden  %>
           <%#= f.input :photo_2_cache, as: :hidden  %>
           <%#= f.input :photo_3_cache, as: :hidden  %>
           <%#= f.input :photo_4_cache, as: :hidden  %>
           <%#= f.input :photo_5_cache, as: :hidden  %>
-          <%= f.submit "Add your boat", class: "btn btn-primary" %>
+          <%= f.submit "Add your boat", class: "btn btn-primary btn-100"%>
           <% end %>
         </div>
     </div>
