@@ -15,28 +15,40 @@
       <div class="show_title">
         <div>
           <h1><%= @boat.name %></h1>
-          <p>
-            <i class="fas fa-map-marker-alt"></i>
-            <%= @boat.location %>
-          </p>
         </div>
-        <div>
-          <i class="fas fa-user-tag"></i><%= cl_image_tag @boat.user.photo, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
+        <div class="rating-container">
+          <div class="boat-rating">
+            <% @boat.average_note.times do %>
+              <i class="fas fa-star" id="star"></i>
+            <% end %>
+            <% (5 - @boat.average_note).times do %>
+              <i class="far fa-star" id="star"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="avatar-picture">
+            <!-- <i class="fas fa-user-tag"> --></i><%= cl_image_tag @boat.user.photo, width: 80, height: 80, crop: :fill, class: "avatar-large" %>
         </div>
       </div>
       <div class="show_infos">
-        <p><i class="fas fa-users"></i> <strong>Capacity</strong>: <%= @boat.capacity %></p>
-        <p><i class="fas fa-dollar-sign"></i> <strong>Price per day</strong>: <%= @boat.price_per_day %>€</p>
-        <p><i class="fas fa-user-tag"></i> <strong>Owner</strong>: <%= @boat.user.first_name %> <%= @boat.user.last_name %></p>
+        <div class="info-card"><p><i class="fas fa-users"></i> <strong>Capacity</strong>: <br><%= @boat.capacity %></p></div>
+        <div class="info-card"><p><i class="fas fa-user-tag"></i> <strong>Owner</strong>: <br><%= @boat.user.first_name %> <%= @boat.user.last_name %></p>
+        </div>
+        <div class="info-card"><p><i class="fas fa-dollar-sign"></i> <strong>Price per day</strong>: <br><%= @boat.price_per_day %>€</p></div>
+        <div class="info-card"><p><i class="fas fa-map-marker-alt"></i> <strong>Location</strong>: <br><%= @boat.location %></p></div>
       </div>
       <div class="show_reviews">
+        <br>
+        <h3>Last reviews</h3>
+        <br>
         <% if @boat.reviews != nil %>
           <% @boat.reviews.each do |review| %>
-            <p>Review: <%= review.content %></p>
+            <p>"<%= review.content %>" from <strong><%= review.user.first_name %></strong> on <%= review.created_at.strftime("%m/%d/%Y") %></p>
           <% end %>
         <% end %>
       </div>
     </div>
+
 
     <div class="right-part">
       <h1>Book now</h1>
@@ -50,11 +62,8 @@
     </div>
 
   </div>
-
-
-  <%= link_to "Book this boat", new_boat_booking_path(@boat) %>
-<br>
-  <%= link_to "Back to List", boats_path %>
+<!--   <%= link_to "Book this boat", new_boat_booking_path(@boat) %> -->
+<!--   <%= link_to "Back to List", boats_path %> -->
 </div>
 
 

@@ -19,14 +19,37 @@
 .show_title {
   display: flex;
   justify-content: space-between;
+  text-align: center;
+}
+
+.rating-container {
+  margin-top: 25px;
+  margin-right: 280px;
+}
+
+.avatar-picture {
+  position: absolute;
+  margin-left: 650px;
+  margin-top: 80px;
 }
 
 .show_infos {
-  padding: 30px;
+  padding-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 32px;
+}
+
+.info-card {
+  text-align: center;
+  background-color: #ddeeff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 8px;
+  padding-top: 16px;
 }
 
 .show_reviews {
-
 }
 
 .form_show_page {
