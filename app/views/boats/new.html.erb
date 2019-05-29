@@ -11,7 +11,15 @@
           <%= f.input :theme, as: :radio_buttons, collection: Boat::THEMES, wrapper: :vertical_collection_inline %>
           <%= f.input :price_per_day, label: "Price per day (euros)", input_html: {min: '0', max: '2000'} %>
           <%= f.input :photo, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
-          <%= f.input :photo_cache, as: :hidden  %>
+          <%= f.input :photo_2, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
+          <%= f.input :photo_3, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
+          <%= f.input :photo_4, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
+          <%= f.input :photo_5, label: "📷 Upload photos of your boat", label_html: { class: 'btn btn-warning' }, input_html: { class: 'd-none'}  %>
+          <%#= f.input :photo_cache, as: :hidden  %>
+          <%#= f.input :photo_2_cache, as: :hidden  %>
+          <%#= f.input :photo_3_cache, as: :hidden  %>
+          <%#= f.input :photo_4_cache, as: :hidden  %>
+          <%#= f.input :photo_5_cache, as: :hidden  %>
           <%= f.submit "Add your boat", class: "btn btn-primary" %>
           <% end %>
         </div>

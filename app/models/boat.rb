@@ -16,6 +16,10 @@ class Boat < ApplicationRecord
   validates :price_per_day, inclusion: { in: PRICE }
 
   mount_uploader :photo, PhotoUploader
+  mount_uploader :photo_1, PhotoUploader
+  mount_uploader :photo_2, PhotoUploader
+  mount_uploader :photo_3, PhotoUploader
+  mount_uploader :photo_4, PhotoUploader
 
   def average_note
     reviews = self.bookings.map {|booking| booking.review}.compact
