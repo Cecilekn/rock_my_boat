@@ -55,7 +55,10 @@
         <br>
         <% if @boat.reviews != nil %>
           <% @boat.reviews.each do |review| %>
-            <p>"<%= review.content %>" from <strong><%= review.user.first_name %></strong> on <%= review.created_at.strftime("%m/%d/%Y") %></p>
+          <ul>
+            <li><p>"<%= review.content %>" from <strong><%= review.user.first_name %></strong> on <%= review.created_at.strftime("%m/%d/%Y") %></p>
+            </li>
+          </ul>
           <% end %>
         <% end %>
       </div>
