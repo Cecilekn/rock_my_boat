@@ -1,1 +1,21 @@
-<p>TOTO</p>
+<div class="popup-card">
+    <div class="popup-boat-card">
+      <div class="popu-boat-rating">
+        <% boat.average_note.times do %>
+          <i class="fas fa-star" id="star"></i>
+        <% end %>
+        <% (5 - boat.average_note).times do %>
+          <i class="far fa-star" id="star"></i>
+        <% end %>
+      </div>
+      <div class="popup-boat-card-picture" style="background: url('<%= cl_image_path boat.photo %>')"></div>
+      <div class="popup-card-body">
+        <h2 class="popup-card-title"><%= link_to boat.name, boat_path(boat) %></h2>
+        <p><i class="fas fa-map-marker-alt"></i> <%= boat.location %></p>
+        <p><i class="fas fa-mask"></i> <%= boat.theme %></p>
+        <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
+        <p><i class="fas fa-money-bill"></i> <%= boat.price_per_day %>€</p>
+      </div>
+      <%= link_to '', boat_path(boat), class: 'boat-card-link' %>
+    </div>
+</div>

@@ -1,0 +1,3 @@
+booking = document.querySelector("[data-booking-card='<%= @booking.id%>']");
+
+booking.innerHTML = "<%= j render 'bookings/card-booking', booking: @booking%>"

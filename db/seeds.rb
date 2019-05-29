@@ -193,4 +193,46 @@ booking8.total_price = dune.price_per_day * (booking8.end_date - booking8.start_
 booking8.save!
 puts "booking8 created"
 
+booking9 = Booking.new(
+  start_date: Date.today + 75,
+  end_date: Date.today + 77,
+  validated: false
+  )
+booking9.user = bollore
+booking9.boat = dune
+booking9.total_price = dune.price_per_day * (booking9.end_date - booking9.start_date).to_i
+booking9.save!
+puts "booking9 created"
 
+booking10 = Booking.new(
+  start_date: Date.today + 102,
+  end_date: Date.today + 105,
+  validated: true
+  )
+booking10.user = mick
+booking10.boat = dune
+booking10.total_price = dune.price_per_day * (booking10.end_date - booking10.start_date).to_i
+booking10.save!
+puts "booking10 created"
+
+booking11 = Booking.new(
+  start_date: Date.today + 32,
+  end_date: Date.today + 40,
+  validated: false
+  )
+booking11.user = mick
+booking11.boat = dune
+booking11.total_price = dune.price_per_day * (booking11.end_date - booking11.start_date).to_i
+booking11.save!
+puts "booking11 created"
+
+booking12 = Booking.new(
+  start_date: Date.today + 54,
+  end_date: Date.today + 57,
+  validated: false
+  )
+booking12.user = bollore
+booking12.boat = dune
+booking12.total_price = dune.price_per_day * (booking12.end_date - booking12.start_date).to_i
+booking12.save!
+puts "booking12 created"

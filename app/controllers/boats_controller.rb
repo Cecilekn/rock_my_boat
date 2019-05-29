@@ -1,7 +1,7 @@
 class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @city = params[:city]
+    @city = params[:city].split(",").first
     @theme = params[:theme]
 
     # @boats = Boat.where.not(latitude: nil, longitude: nil)
