@@ -1,12 +1,15 @@
 .navbar-lewagon {
+  background-color: transparent;
   justify-content: space-between;
-  background-color: #274C77;
-  position: fixed-top;
+  position: fixed;
+  width: 100vw;
+  transition: 0.5s background-color ease;
 }
 
-.navbar-inner-home {
-  background-color: transparent;
-}
+// .navbar-inner-home {
+//   background-color: transparent;
+//   transition: 0.5s background-color ease;
+// }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -17,8 +20,10 @@
   border-radius: 50%;
 }
 
-.navbar-transparent {
-  background-color: transparent;
-  position: fixed;
-  width: 100vw;
+.navbar-blue {
+  background-color: #274C77;
+}
+
+.nav-link {
+  color: white !important;
 }
