@@ -45,7 +45,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.validated = true
     if @booking.save
-      redirect_to bookings_owner_path
+      respond_to do |format|
+        format.html { redirect_to bookings_owner_path }
+        format.js
+      end
     end
   end
 

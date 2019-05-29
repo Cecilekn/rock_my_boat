@@ -17,6 +17,9 @@
   p {
     font-style: italic;
   }
+  h2 {
+    color: #4E6C8F;
+  }
 }
 
 .booking-card-picture {
@@ -32,8 +35,11 @@
 }
 
 .booking-card-description {
-  height: 170px;
+  height: 190px;
   padding: 1.25rem;
+  h2 {
+    margin-bottom: 10px;
+  }
 }
 
 .booking-rating, .booking-confirmation {
@@ -76,4 +82,19 @@ font-weight: 600;
   h1 {
     margin: 20px 0;
   }
+}
+
+.booking-description-item {
+  display: flex;
+  text-align: flex-end;
+}
+
+.font-awesome {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  text-align: flex-end;
+  justify-content: space-around;
+  padding: 0;
+  margin-right: 10px;
 }
