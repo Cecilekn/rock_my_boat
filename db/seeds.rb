@@ -53,6 +53,10 @@ dune = Boat.new(
   price_per_day: 1000
 )
 dune.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"
+dune.remote_photo_2_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"
+dune.remote_photo_3_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"
+dune.remote_photo_4_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"
+dune.remote_photo_5_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622355/Rock%20My%20Boat/catamaran-5294_renw9z.jpg"
 dune.user = leonardo
 dune.save!
 puts "dune created"
@@ -65,6 +69,10 @@ lili = Boat.new(
     price_per_day: 1200
   )
 lili.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"
+lili.remote_photo_2_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"
+lili.remote_photo_3_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"
+lili.remote_photo_4_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"
+lili.remote_photo_5_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558622332/Rock%20My%20Boat/catamaran-2800_hoytl7.jpg"
 lili.user = bollore
 lili.save!
 puts "lili created"
@@ -77,6 +85,10 @@ willbefine = Boat.new(
     price_per_day: 800
   )
 willbefine.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"
+willbefine.remote_photo_2_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"
+willbefine.remote_photo_3_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"
+willbefine.remote_photo_4_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"
+willbefine.remote_photo_5_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621900/Rock%20My%20Boat/fantasy-1_rc2byl.jpg"
 willbefine.user = mick
 willbefine.save!
 puts "willbefine created"
@@ -89,6 +101,10 @@ marcaro = Boat.new(
     price_per_day: 1200
   )
 marcaro.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558620703/Rock%20My%20Boat/touringitaly-rent-a-yatch_moshzk.jpg"
+marcaro.remote_photo_2_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1559129312/eydehfchouobot8mg9al.jpg"
+marcaro.remote_photo_3_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1559128682/t0knzudbppwhuu0gtxdr.jpg"
+marcaro.remote_photo_4_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1559125938/qaym3unrwoq58soelmdt.jpg"
+marcaro.remote_photo_5_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1559124337/xlvnh5joz4xmm6orzpj9.jpg"
 marcaro.user = bollore
 marcaro.save!
 puts "marcaro created"
@@ -101,6 +117,10 @@ moneypenny = Boat.new(
     price_per_day: 600
   )
 moneypenny.remote_photo_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"
+moneypenny.remote_photo_2_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"
+moneypenny.remote_photo_3_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"
+moneypenny.remote_photo_4_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"
+moneypenny.remote_photo_5_url = "https://res.cloudinary.com/di4pxxpr8/image/upload/v1558621184/Rock%20My%20Boat/46d1a096d37130f762120e96788867b7_exz1sq.jpg"
 moneypenny.user = bollore
 moneypenny.save!
 puts "moneypenny created"
