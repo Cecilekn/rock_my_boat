@@ -1,10 +1,11 @@
 class BoatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @city = params[:city].split(",").first
-    @theme = params[:theme]
+    @city = params[:city].split(",").first if params[:city].present?
+    @theme = params[:theme] if params[:theme].present?
 
     # @boats = Boat.where.not(latitude: nil, longitude: nil)
+    @boats = Boat.all
     @boats = Boat.where("location ILIKE ?", "%#{@city}%") if @city.present?
     @boats = Boat.where("theme ILIKE ?", "#{@theme}") if @theme.present?
 

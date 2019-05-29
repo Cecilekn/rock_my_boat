@@ -43,14 +43,14 @@
 }
 
 .booking-rating, .booking-confirmation {
-  color: #E4B9B2;
+  color: white;
   position: absolute;
   top: 194px;
   right: 7px;
 }
 
 .btn-booking {
-  background-color: #7E4137;
+  background-color: #7D4E66;
   color: white;
   font-size: bold;
   padding: 10px;
@@ -60,19 +60,19 @@
   top: 172px;
   right: 7px;
   &:hover {
-    background-color: #E4B9B2;
+    background-color: #A48394;
     color: white;
   }
 }
 
 .warning-message {
-color: #7E4137;
+color: #7D4E66;
 font-weight: 600;
 }
 
 .pending:hover {
   .warning-message{
-    color: #CF8174;
+    color: #A48394;
   }
 }
 

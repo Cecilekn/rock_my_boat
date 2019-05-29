@@ -1,10 +1,9 @@
-<div class="p-4">
+<div class="container-boat-index">
   <div class="d-flex">
     <div class="filtres" id="filters">
-      <h2>Filtres</h2>
+      <h2>Filters</h2>
       <br>
-      <h4>City</h4>
-      <br>
+      <h4>Cities:</h4>
       <ul>
         <% @cities.uniq.each do |city|  %>
           <li>
@@ -13,8 +12,7 @@
         <% end %>
       </ul>
 
-      <h4>Themes</h4>
-      <br>
+      <h4>Themes:</h4>
       <ul>
         <% @themes.uniq.each do |theme| %>
           <li>
@@ -24,7 +22,7 @@
       </ul>
       <br>
 
-      <h4>Capacity</h4>
+      <h4>Capacity:</h4>
       <br>
       <div class="d-flex justify-content-center">
         <p>2</p>
@@ -32,8 +30,9 @@
         <p>50</p>
       </div>
       <br>
+      <br>
 
-      <h4>Price</h4>
+      <h4>Price per day:</h4>
       <br>
       <div class="d-flex justify-content-center">
         <p>200</p>
@@ -43,7 +42,7 @@
     </div>
 
     <div class="flex-grow-1" id="results">
-      <h2>Our best boats rentals</h2>
+      <h1>Our best rentals</h1>
       <br>
       <% if @boats == [] %>
         <p> Sorry, there is no boat in <%= "#{@city&.capitalize}" %>. Choose another city.</p>
@@ -63,10 +62,22 @@
             <div class="boat-card-picture" style="background: url('<%= cl_image_path boat.photo %>')"></div>
             <div class="card-body">
               <h2 class="card-title"><%= link_to boat.name, boat_path(boat) %></h2>
-              <p><i class="fas fa-map-marker-alt"></i> <%= boat.location %></p>
-              <p><i class="fas fa-mask"></i> <%= boat.theme %></p>
-              <p><i class="fas fa-users"></i> <%= boat.capacity %> people</p>
-              <p><i class="fas fa-money-bill"></i> <%= boat.price_per_day %>€ per day</p>
+              <div class="card-body-item">
+                <div class="font-awesome"><p><i class="fas fa-map-marker-alt"></i></p></div>
+                <p><%= boat.location %></p>
+              </div>
+              <div class="card-body-item">
+                <div class="font-awesome"><p><i class="fas fa-mask"></i></p></div>
+                <p><%= boat.theme %></p>
+              </div>
+              <div class="card-body-item">
+                <div class="font-awesome"><p><i class="fas fa-users"></i></p></div>
+                <p><%= boat.capacity %> people</p>
+              </div>
+              <div class="card-body-item">
+                <div class="font-awesome"><p><i class="fas fa-money-bill"></i></p></div>
+                <p><%= boat.price_per_day %>€ per day</p>
+              </div>
             </div>
             <%= link_to '', boat_path(boat), class: 'boat-card-link' %>
           </div>
